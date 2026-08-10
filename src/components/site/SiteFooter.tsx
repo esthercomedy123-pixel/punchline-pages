@@ -67,7 +67,12 @@ export function SiteFooter() {
             <p>
               © {new Date().getFullYear()} {profile.name}. All rights reserved.
             </p>
-            <p>Website content is placeholder text — easy to swap out.</p>
+            <p className="flex items-center gap-3">
+              <span>Website content is placeholder text — easy to swap out.</span>
+              <a href="/auth" className="transition-colors hover:text-accent">
+                Admin
+              </a>
+            </p>
           </div>
         </div>
       </div>

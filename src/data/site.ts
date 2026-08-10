@@ -15,7 +15,7 @@ export const profile = {
   headline: "Comedian • Comedy Coach • Entertainer",
   tagline: "[YOUR TAGLINE — one funny line about you]",
   homeBase: "New York, NY",
-  email: "jessicahirsh@gmail.com",
+  email: "jessicahirshcomedy@gmail.com",
   phone: "1+ (516) 350-7971",
   footerJoke: "[YOUR FOOTER JOKE — something short and dumb goes here]",
 };

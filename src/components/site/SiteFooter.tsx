@@ -69,9 +69,9 @@ export function SiteFooter() {
             </p>
             <p className="flex items-center gap-3">
               <span>Website content is placeholder text — easy to swap out.</span>
-              <Link to="/auth" className="transition-colors hover:text-accent">
+              <a href="/auth" className="transition-colors hover:text-accent">
                 Admin
-              </Link>
+              </a>
             </p>
           </div>
         </div>

@@ -11,20 +11,19 @@
  */
 
 export const profile = {
-  name: "[YOUR NAME]",
+  name: "Esther Forrester",
   headline: "Comedian • Comedy Coach • Entertainer",
   tagline: "[YOUR TAGLINE — one funny line about you]",
-  homeBase: "[YOUR CITY / HOME BASE]",
-  email: "[YOUR EMAIL]",
-  phone: "[YOUR PHONE]",
+  homeBase: "New York, NY",
+  email: "jessicahirsh@gmail.com",
+  phone: "1+ (516) 350-7971",
   footerJoke: "[YOUR FOOTER JOKE — something short and dumb goes here]",
 };
 
 export const socials = [
-  { label: "Instagram", handle: "[INSTAGRAM]", url: "#", icon: "instagram" as const },
-  { label: "TikTok", handle: "[TIKTOK]", url: "#", icon: "tiktok" as const },
-  { label: "YouTube", handle: "[YOUTUBE]", url: "#", icon: "youtube" as const },
-  { label: "Facebook", handle: "[FACEBOOK]", url: "#", icon: "facebook" as const },
+  { label: "Instagram", handle: "@esmakesuslaugh", url: "https://www.instagram.com/esmakesulaugh", icon: "instagram" as const },
+  { label: "TikTok", handle: "@jessicahirsh", url: "https://www.tiktok.com/@jessicahirsh", icon: "tiktok" as const },
+  { label: "YouTube", handle: "@elf7900", url: "https://www.youtube.com/channel/UCp4FzzQPsvClfyHAvVdvfOA", icon: "youtube" as const },
 ];
 
 export const about = {

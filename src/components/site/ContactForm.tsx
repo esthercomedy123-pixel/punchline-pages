@@ -5,25 +5,35 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
 
 const reasons = ["Book me", "Comedy coaching", "General question"] as const;
 
-/** PLACEHOLDER SUBMIT — connect email delivery when ready. */
+/** Saves the message to your private admin inbox. */
 export function ContactForm() {
   const [reason, setReason] = useState<(typeof reasons)[number]>("Book me");
   const [submitting, setSubmitting] = useState(false);
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
+    const data = new FormData(form);
     setSubmitting(true);
-    window.setTimeout(() => {
-      setSubmitting(false);
-      toast.success(`Message captured — ${reason}`, {
-        description: "Placeholder only — connect delivery to actually receive it.",
-      });
-      form.reset();
-    }, 500);
+    const { error } = await supabase.from("contact_messages").insert({
+      name: ((data.get("name") as string) ?? "").trim(),
+      email: ((data.get("email") as string) ?? "").trim(),
+      reason,
+      message: ((data.get("message") as string) ?? "").trim(),
+    });
+    setSubmitting(false);
+    if (error) {
+      toast.error("That didn't send", { description: error.message });
+      return;
+    }
+    toast.success(`Message sent — ${reason}`, {
+      description: "It landed in the inbox. Talk soon.",
+    });
+    form.reset();
   }
 
   return (
@@ -89,7 +99,7 @@ export function ContactForm() {
         {submitting ? "Sending…" : "Send message"}
       </Button>
       <p className="text-xs text-muted-foreground">
-        Placeholder form — no email is sent yet.
+        Goes straight to the private inbox.
       </p>
     </form>
   );

@@ -5,25 +5,37 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { bookingTypes } from "@/data/site";
+import { supabase } from "@/integrations/supabase/client";
 
-/**
- * PLACEHOLDER SUBMIT: this form validates and confirms in the browser only.
- * Hook it up to email/database delivery when you're ready.
- */
+/** Saves the request to your private admin inbox. */
 export function BookingForm() {
   const [submitting, setSubmitting] = useState(false);
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
+    const data = new FormData(form);
+    const get = (key: string) => (data.get(key) as string | null)?.trim() || null;
     setSubmitting(true);
-    window.setTimeout(() => {
-      setSubmitting(false);
-      toast.success("Booking request captured", {
-        description: "Placeholder only — connect delivery to actually receive it.",
-      });
-      form.reset();
-    }, 500);
+    const { error } = await supabase.from("booking_requests").insert({
+      name: get("name") ?? "",
+      email: get("email") ?? "",
+      phone: get("phone"),
+      venue: get("venue") ?? "",
+      event_date: get("date"),
+      location: get("location") ?? "",
+      event_type: get("eventType") ?? "",
+      details: get("details"),
+    });
+    setSubmitting(false);
+    if (error) {
+      toast.error("That didn't send", { description: error.message });
+      return;
+    }
+    toast.success("Booking request sent", {
+      description: "It's in the inbox — expect a reply soon.",
+    });
+    form.reset();
   }
 
   return (
@@ -75,7 +87,7 @@ export function BookingForm() {
         {submitting ? "Sending…" : "Send booking request"}
       </Button>
       <p className="text-xs text-muted-foreground">
-        Placeholder form — no email is sent yet. Ask to connect delivery when you're ready.
+        Sent straight to the private inbox. No spam, no mailing list, no nonsense.
       </p>
     </form>
   );

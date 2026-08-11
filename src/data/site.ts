@@ -57,6 +57,8 @@ export const about = {
 export const inflationGame = {
   title: "The Inflation Game",
   kicker: "The signature show",
+  // Your live stream link (YouTube channel, live tab, or a specific stream URL)
+  streamUrl: "https://www.youtube.com/channel/UCp4FzzQPsvClfyHAvVdvfOA/live",
   description:
     "[SHORT SHOW DESCRIPTION — what the show is, in two or three punchy sentences. Part stand-up, part game show, all about how absurdly expensive everything got.]",
   expectations: [

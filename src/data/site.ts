@@ -28,15 +28,15 @@ export const socials = [
 
 export const about = {
   intro:
-    "[SHORT INTRO — two or three sentences in your own voice. Who you are, what you talk about on stage, and why people keep coming back.]",
+    "Jessica Hirsh is a stand up comedian, entrepreneur, tennis coach, and comedy educator. Her style can be described as confidently awkward. She talks about life in nyc, being an entrepreneur, the nuances of being by a former athlete, dating, and more. ",
   cards: [
     {
       title: "My comedy style",
-      body: "[YOUR STYLE — observational, storytelling, crowd work, one-liners, absurd? Say it the way you'd say it to a friend.]",
+      body: "",
     },
     {
       title: "My background",
-      body: "[YOUR BACKGROUND — how you started, how long you've been doing this, what you did before comedy.]",
+      body: "Jessica Hirsh started doing comedy because Jeff Bezos’ brother in law encouraged her and he was in show biz. Her career began awkwardly when she had to hit on an audience member to revive her performance after going after Jerry Seinfeld",
     },
     {
       title: "Where I perform",

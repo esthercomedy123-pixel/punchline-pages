@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, CalendarDays, GraduationCap, Ticket } from "lucide-react";
+import { ArrowRight, CalendarDays, GraduationCap } from "lucide-react";
 import heroImage from "@/assets/hero-comedian.jpg";
 import inflationImage from "@/assets/inflation-game.jpg";
 import coachingImage from "@/assets/coaching.jpg";
@@ -152,12 +152,12 @@ function Index() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild variant="pop" size="xl">
-                <Link to="/inflation-game">
-                  <Ticket aria-hidden="true" /> Get tickets
-                </Link>
+                <a href={inflationGame.streamUrl} target="_blank" rel="noreferrer">
+                  <YoutubeIcon className="size-5" /> Join my stream
+                </a>
               </Button>
               <Button asChild variant="ghostOnDark" size="xl">
-                <Link to="/book">Book the show</Link>
+                <Link to="/inflation-game">About the show</Link>
               </Button>
             </div>
           </Reveal>

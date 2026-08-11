@@ -8,8 +8,8 @@ import { Marquee } from "@/components/site/Marquee";
 import { Reveal } from "@/components/site/Reveal";
 import { YoutubeIcon } from "@/components/site/YoutubeIcon";
 import { Kicker, SectionHeading } from "@/components/site/SectionHeading";
-import { ShowCard } from "@/components/site/ShowCard";
-import { about, inflationGame, profile, shows } from "@/data/site";
+import { ShowsList } from "@/components/site/ShowsList";
+import { about, inflationGame, profile } from "@/data/site";
 
 const title = `${profile.name} — Comedian, Comedy Coach & Entertainer`;
 const description =
@@ -200,12 +200,8 @@ function Index() {
         <Reveal>
           <SectionHeading kicker="Next up" title="Upcoming shows" />
         </Reveal>
-        <div className="mt-10 grid gap-4">
-          {shows.slice(0, 3).map((show, index) => (
-            <Reveal key={show.id} delay={index * 80}>
-              <ShowCard show={show} />
-            </Reveal>
-          ))}
+        <div className="mt-10">
+          <ShowsList limit={3} />
         </div>
         <Reveal delay={120}>
           <div className="mt-10 flex flex-wrap gap-3">

@@ -17,7 +17,7 @@ export const profile = {
   homeBase: "New York, NY",
   email: "jessicahirshcomedy@gmail.com",
   phone: "1+ (516) 350-7971",
-  footerJoke: "[YOUR FOOTER JOKE — something short and dumb goes here]",
+  footerJoke: "© 2026 — Made with questionable decisions and good intentions.",
 };
 
 export const socials = [
@@ -60,7 +60,7 @@ export const inflationGame = {
   // Your live stream link (YouTube channel, live tab, or a specific stream URL)
   streamUrl: "https://www.youtube.com/channel/UCp4FzzQPsvClfyHAvVdvfOA/live",
   description:
-    "[Have You Felt Like Things Have Been Getting Expensive? Me Too! Join my streams for a comedic game show trying to guess prices of many household items.]",
+    "Have You Felt Like Things Have Been Getting Expensive? Me Too! Join my streams for a comedic game show trying to guess prices of many household items.",
   expectations: [
     {
       title: "Guess the price",
@@ -79,9 +79,9 @@ export const inflationGame = {
       body: "[PRIZES — what people can win, or how gloriously cheap the prizes are.]",
     },
   ],
-  runtime: "[About an hour]",
+  runtime: "About an hour⏱️",
   format: "Host + Guests",
-  audience: "[18+ Mainly Adults]",
+  audience: "18+ Mainly Adults",
 };
 
 export type Show = {

@@ -60,7 +60,7 @@ export const inflationGame = {
   // Your live stream link (YouTube channel, live tab, or a specific stream URL)
   streamUrl: "https://www.youtube.com/channel/UCp4FzzQPsvClfyHAvVdvfOA/live",
   description:
-    "[SHORT SHOW DESCRIPTION — what the show is, in two or three punchy sentences. Part stand-up, part game show, all about how absurdly expensive everything got.]",
+    "[Have You Felt Like Things Have Been Getting Expensive? Me Too! Join my streams for a comedic game show trying to guess prices of many household items.]",
   expectations: [
     {
       title: "Guess the price",
@@ -68,20 +68,20 @@ export const inflationGame = {
     },
     {
       title: "Audience in the hot seat",
-      body: "[AUDIENCE PARTICIPATION — how volunteers get involved and what happens to them.]",
+      body: "[Volunteers can join the streams for free and help guess prices!]",
     },
     {
       title: "Real receipts",
-      body: "[BIT DESCRIPTION — the props, receipts, or screenshots you bring on stage.]",
+      body: "Real receipts and screenshots of actual items",
     },
     {
       title: "Actual prizes",
       body: "[PRIZES — what people can win, or how gloriously cheap the prizes are.]",
     },
   ],
-  runtime: "[RUNTIME]",
-  format: "[FORMAT — solo show, host + guests, etc.]",
-  audience: "[AUDIENCE — ages, room size, vibe]",
+  runtime: "[About an hour]",
+  format: "Host + Guests",
+  audience: "[18+ Mainly Adults]",
 };
 
 export type Show = {

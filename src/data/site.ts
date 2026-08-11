@@ -87,7 +87,7 @@ export const inflationGame = {
 export type Show = {
   id: string;
   date: string; // e.g. "[MONTH DAY, YEAR]"
-  time: string;
+  time?: string;
   venue: string;
   city: string;
   showName: string;

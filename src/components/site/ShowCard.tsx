@@ -24,11 +24,13 @@ export function ShowCard({ show }: { show: Show }) {
                 <dt className="sr-only">Date</dt>
                 <dd>{show.date}</dd>
               </div>
-              <div className="flex items-center gap-2">
-                <Clock className="size-4 text-secondary" aria-hidden="true" />
-                <dt className="sr-only">Time</dt>
-                <dd>{show.time}</dd>
-              </div>
+              {show.time ? (
+                <div className="flex items-center gap-2">
+                  <Clock className="size-4 text-secondary" aria-hidden="true" />
+                  <dt className="sr-only">Time</dt>
+                  <dd>{show.time}</dd>
+                </div>
+              ) : null}
               <div className="flex items-center gap-2">
                 <MapPin className="size-4 text-tangerine" aria-hidden="true" />
                 <dt className="sr-only">Venue</dt>
@@ -40,7 +42,7 @@ export function ShowCard({ show }: { show: Show }) {
           </div>
         </div>
         <Button asChild variant="pop" size="lg" className="shrink-0">
-          <a href={show.ticketUrl}>
+          <a href={show.ticketUrl} target="_blank" rel="noreferrer">
             <Ticket aria-hidden="true" />
             {show.ticketLabel ?? "Tickets"}
           </a>

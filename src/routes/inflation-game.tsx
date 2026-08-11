@@ -72,9 +72,6 @@ function InflationGamePage() {
               height={1008}
               className="w-full rotate-1 rounded-2xl border-[4px] border-ink object-cover shadow-pop"
             />
-            <span className="absolute -bottom-5 left-6 rotate-[-4deg] rounded-md border-[3px] border-ink bg-paper px-4 py-2 font-display text-sm tracking-widest uppercase">
-              Promo photo placeholder
-            </span>
           </div>
         </div>
       </section>

@@ -2,31 +2,20 @@ import { createServerFn } from "@tanstack/react-start";
 import { SHOWS_API_URL } from "@/config/shows";
 import type { Show } from "@/data/site";
 
-const TZ = "America/New_York";
+const MONTHS = [
+  "January","February","March","April","May","June",
+  "July","August","September","October","November","December",
+];
 
-const dateFormatter = new Intl.DateTimeFormat("en-US", {
-  month: "long",
-  day: "numeric",
-  year: "numeric",
-  timeZone: TZ,
-});
-
-const timeFormatter = new Intl.DateTimeFormat("en-US", {
-  hour: "numeric",
-  minute: "2-digit",
-  timeZone: TZ,
-});
-
-function formatDate(raw: unknown): { date: string; time?: string } {
-  if (typeof raw !== "string" && typeof raw !== "number") return { date: "" };
+/** Turns an ISO date (or already-formatted string) into e.g. "September 15, 2026". */
+function formatDate(raw: unknown): string {
+  if (typeof raw !== "string" && typeof raw !== "number") return "";
   const parsed = new Date(raw);
-  if (Number.isNaN(parsed.getTime())) return { date: String(raw) };
-  const localTime = timeFormatter.format(parsed);
-  const hasTime = localTime !== "12:00 AM";
-  return {
-    date: dateFormatter.format(parsed),
-    ...(hasTime ? { time: localTime } : {}),
-  };
+  if (Number.isNaN(parsed.getTime())) return String(raw);
+  // Sheet dates arrive as midnight in the sheet's timezone; read the calendar
+  // day back out in UTC so the displayed date matches the sheet.
+  const shifted = new Date(parsed.getTime() + 12 * 60 * 60 * 1000);
+  return `${MONTHS[shifted.getUTCMonth()]} ${shifted.getUTCDate()}, ${shifted.getUTCFullYear()}`;
 }
 
 export const getShows = createServerFn({ method: "GET" }).handler(async (): Promise<Show[]> => {
@@ -43,11 +32,10 @@ export const getShows = createServerFn({ method: "GET" }).handler(async (): Prom
 
   return rows.map((row, index) => {
     const item = (row ?? {}) as Record<string, unknown>;
-    const { date, time } = formatDate(item["date"]);
+    const date = formatDate(item["date"]);
     return {
       id: `show-${index}`,
       date,
-      ...(time ? { time } : {}),
       venue: typeof item["venue"] === "string" ? item["venue"] : "",
       city: typeof item["city"] === "string" ? item["city"] : "",
       showName: typeof item["showName"] === "string" ? item["showName"] : "",

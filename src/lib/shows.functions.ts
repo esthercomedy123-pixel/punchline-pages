@@ -2,27 +2,30 @@ import { createServerFn } from "@tanstack/react-start";
 import { SHOWS_API_URL } from "@/config/shows";
 import type { Show } from "@/data/site";
 
+const TZ = "America/New_York";
+
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   month: "long",
   day: "numeric",
   year: "numeric",
-  timeZone: "UTC",
+  timeZone: TZ,
 });
 
 const timeFormatter = new Intl.DateTimeFormat("en-US", {
   hour: "numeric",
   minute: "2-digit",
-  timeZone: "UTC",
+  timeZone: TZ,
 });
 
 function formatDate(raw: unknown): { date: string; time?: string } {
   if (typeof raw !== "string" && typeof raw !== "number") return { date: "" };
   const parsed = new Date(raw);
   if (Number.isNaN(parsed.getTime())) return { date: String(raw) };
-  const hasTime = parsed.getUTCHours() !== 0 || parsed.getUTCMinutes() !== 0;
+  const localTime = timeFormatter.format(parsed);
+  const hasTime = localTime !== "12:00 AM";
   return {
     date: dateFormatter.format(parsed),
-    ...(hasTime ? { time: timeFormatter.format(parsed) } : {}),
+    ...(hasTime ? { time: localTime } : {}),
   };
 }
 

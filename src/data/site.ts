@@ -95,37 +95,7 @@ export type Show = {
   ticketLabel?: string;
 };
 
-/** Add, remove or reorder shows here. Delete a block to remove a date. */
-export const shows: Show[] = [
-  {
-    id: "show-1",
-    date: "[DATE]",
-    time: "[TIME]",
-    venue: "[VENUE NAME]",
-    city: "[CITY, STATE]",
-    showName: "The Inflation Game",
-    ticketUrl: "#",
-    ticketLabel: "Get tickets",
-  },
-  {
-    id: "show-2",
-    date: "[DATE]",
-    time: "[TIME]",
-    venue: "[VENUE NAME]",
-    city: "[CITY, STATE]",
-    showName: "[SHOW NAME]",
-    ticketUrl: "#",
-  },
-  {
-    id: "show-3",
-    date: "[DATE]",
-    time: "[TIME]",
-    venue: "[VENUE NAME]",
-    city: "[CITY, STATE]",
-    showName: "[SHOW NAME]",
-    ticketUrl: "#",
-  },
-];
+/** Shows are loaded live from the schedule API (see src/config/shows.ts). */
 
 export const coachingSkills = [
   { title: "Writing jokes", body: "[HOW YOU TEACH WRITING — premise, angle, tags, rewrites.]" },

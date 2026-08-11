@@ -6,6 +6,7 @@ import coachingImage from "@/assets/coaching.jpg";
 import { Button } from "@/components/ui/button";
 import { Marquee } from "@/components/site/Marquee";
 import { Reveal } from "@/components/site/Reveal";
+import { YoutubeIcon } from "@/components/site/YoutubeIcon";
 import { Kicker, SectionHeading } from "@/components/site/SectionHeading";
 import { ShowCard } from "@/components/site/ShowCard";
 import { about, inflationGame, profile, shows } from "@/data/site";

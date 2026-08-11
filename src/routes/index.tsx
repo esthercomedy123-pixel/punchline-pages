@@ -78,9 +78,6 @@ function Index() {
               className="relative aspect-4/5 w-full rounded-[2rem] border-[3px] border-ink object-cover"
             />
             <div className="absolute -bottom-6 -left-4 rotate-[-6deg] rounded-2xl border-[3px] border-ink bg-accent px-5 py-3 shadow-pop">
-              <p className="font-display text-sm tracking-[0.14em] text-accent-foreground uppercase">
-                Photo placeholder — swap in yours
-              </p>
             </div>
           </div>
         </div>

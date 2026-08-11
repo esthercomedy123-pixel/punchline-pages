@@ -7,7 +7,8 @@ import { Marquee } from "@/components/site/Marquee";
 import { Reveal } from "@/components/site/Reveal";
 import { ShowCard } from "@/components/site/ShowCard";
 import { YoutubeIcon } from "@/components/site/YoutubeIcon";
-import { inflationGame, shows } from "@/data/site";
+import { inflationGame } from "@/data/site";
+import { ShowsList } from "@/components/site/ShowsList";
 
 const title = "The Inflation Game — Live Streamed Comedy Game Show";
 const description =
@@ -32,9 +33,6 @@ const facts = [
 ];
 
 function InflationGamePage() {
-  const gameShows = shows.filter((show) => show.showName === inflationGame.title);
-  const listedShows = gameShows.length > 0 ? gameShows : shows;
-
   return (
     <div className="bg-paper text-paper-foreground">
       <section className="relative overflow-hidden border-b-[3px] border-ink">
@@ -122,16 +120,13 @@ function InflationGamePage() {
               Upcoming <span className="text-gradient-hot">Inflation Game</span> streams
             </h2>
             <p className="mt-4 max-w-2xl text-muted-foreground">
-              Dates are placeholders — update them in one file and they appear here and on the
-              schedule page.
+              Dates come straight from my live schedule.
             </p>
           </Reveal>
-          <div className="mt-10 grid gap-4">
-            {listedShows.map((show, index) => (
-              <Reveal key={show.id} delay={index * 80}>
-                <ShowCard show={show} />
-              </Reveal>
-            ))}
+          <div className="mt-10">
+            <ShowsList
+              emptyMessage="No stream dates listed right now — check back soon."
+            />
           </div>
           <Reveal delay={120}>
             <div className="mt-10 flex flex-wrap gap-3">

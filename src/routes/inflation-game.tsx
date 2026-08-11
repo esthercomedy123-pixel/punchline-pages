@@ -5,7 +5,6 @@ import venueImage from "@/assets/venue-stage.jpg";
 import { Button } from "@/components/ui/button";
 import { Marquee } from "@/components/site/Marquee";
 import { Reveal } from "@/components/site/Reveal";
-import { ShowCard } from "@/components/site/ShowCard";
 import { YoutubeIcon } from "@/components/site/YoutubeIcon";
 import { inflationGame } from "@/data/site";
 import { ShowsList } from "@/components/site/ShowsList";

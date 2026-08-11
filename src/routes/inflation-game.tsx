@@ -1,16 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Receipt, ShoppingCart, Ticket, TrendingUp } from "lucide-react";
+import { Receipt, ShoppingCart, TrendingUp } from "lucide-react";
 import inflationImage from "@/assets/inflation-game.jpg";
 import venueImage from "@/assets/venue-stage.jpg";
 import { Button } from "@/components/ui/button";
 import { Marquee } from "@/components/site/Marquee";
 import { Reveal } from "@/components/site/Reveal";
 import { ShowCard } from "@/components/site/ShowCard";
+import { YoutubeIcon } from "@/components/site/YoutubeIcon";
 import { inflationGame, shows } from "@/data/site";
 
-const title = "The Inflation Game — A Live Comedy Game Show";
+const title = "The Inflation Game — Live Streamed Comedy Game Show";
 const description =
-  "The Inflation Game is a live stand-up game show about how absurdly expensive everything got. Guess the price, win something cheap, laugh about the receipts.";
+  "The Inflation Game is a live streamed stand-up game show about how absurdly expensive everything got. Guess the price, win something cheap, laugh about the receipts.";
 
 export const Route = createFileRoute("/inflation-game")({
   head: () => ({
@@ -54,12 +55,12 @@ function InflationGamePage() {
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Button asChild variant="pop" size="xl">
-                <a href="#dates">
-                  <Ticket aria-hidden="true" /> Get tickets
+                <a href={inflationGame.streamUrl} target="_blank" rel="noreferrer">
+                  <YoutubeIcon className="size-5" /> Join my stream
                 </a>
               </Button>
               <Button asChild size="xl" variant="marquee">
-                <Link to="/book">Book the show</Link>
+                <a href="#dates">See stream dates</a>
               </Button>
             </div>
           </div>
@@ -121,7 +122,7 @@ function InflationGamePage() {
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <Reveal>
             <h2 className="text-4xl sm:text-5xl">
-              Upcoming <span className="text-gradient-hot">Inflation Game</span> dates
+              Upcoming <span className="text-gradient-hot">Inflation Game</span> streams
             </h2>
             <p className="mt-4 max-w-2xl text-muted-foreground">
               Dates are placeholders — update them in one file and they appear here and on the
@@ -138,7 +139,9 @@ function InflationGamePage() {
           <Reveal delay={120}>
             <div className="mt-10 flex flex-wrap gap-3">
               <Button asChild variant="hero" size="xl">
-                <Link to="/book">Bring the show to your venue</Link>
+                <a href={inflationGame.streamUrl} target="_blank" rel="noreferrer">
+                  <YoutubeIcon className="size-5" /> Join my stream
+                </a>
               </Button>
               <Button asChild variant="ghostOnDark" size="xl">
                 <Link to="/schedule">See all shows</Link>

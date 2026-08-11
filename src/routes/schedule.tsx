@@ -41,7 +41,7 @@ function SchedulePage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <ShowsList />
+        <ShowsList showRefresh />
 
         <Reveal delay={120}>
           <div className="mt-14 overflow-hidden rounded-3xl border-[3px] border-ink bg-gradient-hot p-8 sm:p-10">

@@ -2,9 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
-import { ShowCard } from "@/components/site/ShowCard";
+import { ShowsList } from "@/components/site/ShowsList";
 import venueImage from "@/assets/venue-stage.jpg";
-import { shows } from "@/data/site";
 
 const title = "Schedule — Upcoming Stand-Up Comedy Shows";
 const description =
@@ -42,19 +41,7 @@ function SchedulePage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        {shows.length > 0 ? (
-          <div className="grid gap-4">
-            {shows.map((show, index) => (
-              <Reveal key={show.id} delay={index * 70}>
-                <ShowCard show={show} />
-              </Reveal>
-            ))}
-          </div>
-        ) : (
-          <p className="rounded-2xl border-2 border-dashed border-border p-10 text-center text-muted-foreground">
-            No dates listed right now — check back soon, or get in touch about booking a show.
-          </p>
-        )}
+        <ShowsList />
 
         <Reveal delay={120}>
           <div className="mt-14 overflow-hidden rounded-3xl border-[3px] border-ink bg-gradient-hot p-8 sm:p-10">
@@ -72,8 +59,7 @@ function SchedulePage() {
         </Reveal>
 
         <p className="mt-8 text-xs text-muted-foreground">
-          All dates, venues and ticket links are placeholders — they live in one file so they're
-          quick to add, edit or remove.
+          Dates, venues and ticket links are pulled live from my show schedule.
         </p>
       </section>
     </>

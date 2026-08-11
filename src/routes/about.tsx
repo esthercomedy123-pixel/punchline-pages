@@ -51,7 +51,7 @@ function AboutPage() {
           </div>
           <div className="relative">
             <img
-              src={heroImage}
+              src={aboutImage}
               alt={`${profile.name} on stage with a microphone`}
               loading="lazy"
               width={1200}

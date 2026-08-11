@@ -13,7 +13,7 @@
 export const profile = {
   name: "Esther Forrester",
   headline: "Comedian • Comedy Coach • Entertainer",
-  tagline: "[YOUR TAGLINE — one funny line about you]",
+  tagline: "Bad jokes. Great website.",
   homeBase: "New York, NY",
   email: "jessicahirshcomedy@gmail.com",
   phone: "1+ (516) 350-7971",

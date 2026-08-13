@@ -44,9 +44,9 @@ export const about = {
     },
   ],
   stats: [
-    { value: "[__]", label: "Years on stage" },
-    { value: "[__]", label: "Shows a year" },
-    { value: "[__]", label: "Comedians coached" },
+    { value: "[3-4]", label: "Years on stage" },
+    { value: "[50+]", label: "Shows a year" },
+    { value: "[Too Many To Count!]", label: "Comedians coached" },
   ],
 };
 

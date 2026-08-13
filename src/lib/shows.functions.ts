@@ -19,11 +19,21 @@ function formatDate(raw: unknown): string {
 }
 
 export const getShows = createServerFn({ method: "GET" }).handler(async (): Promise<Show[]> => {
-  const response = await fetch(SHOWS_API_URL, { headers: { accept: "application/json" } });
+  // Apps Script /exec answers with a 302 to script.googleusercontent.com, so
+  // redirects must be followed and the body can come back as text/html.
+  const response = await fetch(SHOWS_API_URL, { redirect: "follow" });
+  const text = await response.text();
   if (!response.ok) {
-    throw new Error("Could not load the show schedule right now.");
+    console.error("Shows API error", response.status, text.slice(0, 300));
+    throw new Error(`Could not load the show schedule right now (status ${response.status}).`);
   }
-  const payload: unknown = await response.json();
+  let payload: unknown;
+  try {
+    payload = JSON.parse(text);
+  } catch {
+    console.error("Shows API returned non-JSON", text.slice(0, 300));
+    throw new Error("The show schedule API did not return JSON.");
+  }
   const rows = Array.isArray(payload)
     ? payload
     : Array.isArray((payload as { shows?: unknown[] })?.shows)

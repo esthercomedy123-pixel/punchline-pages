@@ -40,7 +40,7 @@ export const about = {
     },
     {
       title: "Where I perform",
-      body: "[WHERE YOU PERFORM — clubs, theaters, festivals, corporate rooms, colleges, that one bar with the weird lighting.]",
+      body: "Anywhere You Want! If You Think I'd Make A Good Fit Contact Me! I'd Love To Perform!",
     },
     {
       title: "What makes it different",

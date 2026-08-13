@@ -28,7 +28,7 @@ export const socials = [
 
 export const about = {
   intro:
-    "Jessica Hirsh is a stand up comedian, entrepreneur, tennis coach, and comedy educator. Her style can be described as confidently awkward. She talks about life in nyc, being an entrepreneur, the nuances of being by a former athlete, dating, and more. ",
+    "Jessica Hirsh (Stage Name) is a stand-up comedian, entrepreneur, tennis coach, and comedy educator. Her style can be described as confidently awkward. She talks about life in nyc, being an entrepreneur, the nuances of being by a former athlete, dating, and more. ",
   cards: [
     {
       title: "My comedy style",

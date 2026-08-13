@@ -7,7 +7,7 @@ import { Marquee } from "@/components/site/Marquee";
 import { Reveal } from "@/components/site/Reveal";
 import { YoutubeIcon } from "@/components/site/YoutubeIcon";
 import { inflationGame } from "@/data/site";
-import { ShowsList } from "@/components/site/ShowsList";
+
 
 const title = "The Inflation Game — Live Streamed Comedy Game Show";
 const description =

@@ -42,10 +42,6 @@ export const about = {
       title: "Where I perform",
       body: "Anywhere You Want! If You Think I'd Make A Good Fit Contact Me! I'd Love To Perform!",
     },
-    {
-      title: "What makes it different",
-      body: "[WHAT MAKES YOUR COMEDY UNIQUE — the thing nobody else on the lineup is doing.]",
-    },
   ],
   stats: [
     { value: "[__]", label: "Years on stage" },

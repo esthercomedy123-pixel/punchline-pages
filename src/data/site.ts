@@ -32,7 +32,7 @@ export const about = {
   cards: [
     {
       title: "My comedy style",
-      body: "",
+      body: "Jessica Hirsh is a Confidently Awkward Comedian with a few years of on-stage experience",
     },
     {
       title: "My background",

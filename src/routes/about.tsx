@@ -65,7 +65,15 @@ function AboutPage() {
       <section className="mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8">
         <div className="grid gap-5 md:grid-cols-2">
           {about.cards.map((card, index) => (
-            <Reveal key={card.title} delay={index * 80}>
+            <Reveal
+              key={card.title}
+              delay={index * 80}
+              className={
+                index === about.cards.length - 1 && about.cards.length % 2 === 1
+                  ? "md:col-span-2 md:mx-auto md:w-full md:max-w-xl"
+                  : ""
+              }
+            >
               <article className="h-full rounded-2xl border-2 border-border bg-card p-7 transition-[border-color,transform] hover:-translate-y-1 hover:border-accent">
                 <span className="font-display text-sm tracking-[0.2em] text-primary">
                   {String(index + 1).padStart(2, "0")}

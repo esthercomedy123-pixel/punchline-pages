@@ -29,7 +29,6 @@ export const Route = createFileRoute("/auth")({
 
 function AuthPage() {
   const navigate = useNavigate();
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(false);
@@ -44,23 +43,8 @@ function AuthPage() {
     event.preventDefault();
     setBusy(true);
     try {
-      if (mode === "signup") {
-        const { data, error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: { emailRedirectTo: `${window.location.origin}/admin` },
-        });
-        if (error) throw error;
-        if (!data.session) {
-          toast.success("Almost there", {
-            description: "Check your email and click the confirmation link to finish.",
-          });
-          return;
-        }
-      } else {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) throw error;
-      }
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) throw error;
       navigate({ to: "/admin", replace: true });
     } catch (error) {
       toast.error("Couldn't sign you in", {
@@ -91,13 +75,9 @@ function AuthPage() {
         <span className="grid size-11 place-items-center rounded-xl bg-gradient-hot">
           <Mic className="size-5 text-primary-foreground" aria-hidden="true" />
         </span>
-        <h1 className="mt-5 font-display text-3xl tracking-wide uppercase">
-          {mode === "signin" ? "Backstage" : "Claim the mic"}
-        </h1>
+        <h1 className="mt-5 font-display text-3xl tracking-wide uppercase">Backstage</h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          {mode === "signin"
-            ? "Private door. Sign in to read booking requests and messages."
-            : "First account created becomes the admin. Do this once, then never again."}
+          Private door. Sign in to read booking requests and messages.
         </p>
 
         <form onSubmit={handleSubmit} className="mt-6 grid gap-4">
@@ -118,7 +98,7 @@ function AuthPage() {
             <Input
               id="auth-password"
               type="password"
-              autoComplete={mode === "signin" ? "current-password" : "new-password"}
+              autoComplete="current-password"
               required
               minLength={8}
               value={password}
@@ -127,7 +107,7 @@ function AuthPage() {
             />
           </div>
           <Button type="submit" variant="hero" size="xl" disabled={busy}>
-            {busy ? "One sec…" : mode === "signin" ? "Sign in" : "Create admin account"}
+            {busy ? "One sec…" : "Sign in"}
           </Button>
         </form>
 
@@ -140,14 +120,6 @@ function AuthPage() {
         <Button type="button" variant="outline" size="xl" className="w-full" disabled={busy} onClick={handleGoogle}>
           Continue with Google
         </Button>
-
-        <button
-          type="button"
-          onClick={() => setMode(mode === "signin" ? "signup" : "signin")}
-          className="mt-6 cursor-pointer text-sm text-accent underline-offset-4 hover:underline"
-        >
-          {mode === "signin" ? "Need to create the admin account?" : "Already have an account? Sign in"}
-        </button>
 
         <p className="mt-6 text-xs text-muted-foreground">
           <Link to="/" className="underline-offset-4 hover:underline">

@@ -71,7 +71,7 @@ function AboutPage() {
               className={
                 index === about.cards.length - 1 && about.cards.length % 2 === 1
                   ? "md:col-span-2 md:mx-auto md:w-full md:max-w-xl"
-                  : undefined
+                  : ""
               }
             >
               <article className="h-full rounded-2xl border-2 border-border bg-card p-7 transition-[border-color,transform] hover:-translate-y-1 hover:border-accent">

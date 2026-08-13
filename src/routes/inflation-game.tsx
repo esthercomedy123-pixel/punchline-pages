@@ -7,7 +7,7 @@ import { Marquee } from "@/components/site/Marquee";
 import { Reveal } from "@/components/site/Reveal";
 import { YoutubeIcon } from "@/components/site/YoutubeIcon";
 import { inflationGame } from "@/data/site";
-import { ShowsList } from "@/components/site/ShowsList";
+
 
 const title = "The Inflation Game — Live Streamed Comedy Game Show";
 const description =
@@ -116,26 +116,37 @@ function InflationGamePage() {
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <Reveal>
             <h2 className="text-4xl sm:text-5xl">
-              Upcoming <span className="text-gradient-hot">Inflation Game</span> streams
+              <span className="text-gradient-hot">Inflation Game</span> streams
             </h2>
             <p className="mt-4 max-w-2xl text-muted-foreground">
-              Dates come straight from my live schedule.
+              Live every week — no ticket needed, just show up and guess the price.
             </p>
           </Reveal>
           <div className="mt-10">
-            <ShowsList
-              emptyMessage="No stream dates listed right now — check back soon."
-            />
+            <div className="group relative overflow-hidden rounded-2xl border-[3px] border-border bg-card p-8 text-card-foreground transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-accent sm:p-10">
+              <div
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-1 bg-gradient-hot opacity-70 transition-opacity group-hover:opacity-100"
+              />
+              <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <h3 className="text-3xl text-foreground">Every Sunday at 8:00 P.M.</h3>
+                  <p className="mt-2 text-muted-foreground">
+                    New stream weekly — bring your best guess and your worst receipts.
+                  </p>
+                </div>
+                <Button asChild variant="hero" size="lg" className="shrink-0">
+                  <a href={inflationGame.streamUrl} target="_blank" rel="noreferrer">
+                    <YoutubeIcon className="size-5" /> Join my stream
+                  </a>
+                </Button>
+              </div>
+            </div>
           </div>
           <Reveal delay={120}>
             <div className="mt-10 flex flex-wrap gap-3">
-              <Button asChild variant="hero" size="xl">
-                <a href={inflationGame.streamUrl} target="_blank" rel="noreferrer">
-                  <YoutubeIcon className="size-5" /> Join my stream
-                </a>
-              </Button>
               <Button asChild variant="ghostOnDark" size="xl">
-                <Link to="/schedule">See all shows</Link>
+                <Link to="/schedule">See all stand-up shows</Link>
               </Button>
             </div>
           </Reveal>

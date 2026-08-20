@@ -91,6 +91,29 @@ export type Show = {
   ticketLabel?: string;
 };
 
+/**
+ * ---------------------------------------------
+ *  COMEDY CLIPS — paste new video URLs here
+ * ---------------------------------------------
+ *  YouTube links (watch, youtu.be or Shorts) are embedded and play
+ *  right on the page. TikTok / Instagram / anything else shows as a
+ *  clickable card that opens the clip in a new tab.
+ *  To add a clip: copy one block below, change the url + title.
+ */
+export type Clip = {
+  title: string;
+  url: string;
+  blurb?: string;
+};
+
+export const clips: Clip[] = [
+  {
+    title: "[CLIP TITLE]",
+    url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    blurb: "[ONE LINE ABOUT THIS CLIP]",
+  },
+];
+
 /** Shows are loaded live from the schedule API (see src/config/shows.ts). */
 
 export const coachingSkills = [
@@ -161,6 +184,7 @@ export const navItems = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "The Inflation Game", to: "/inflation-game" },
+  { label: "Clips", to: "/clips" },
   { label: "Comedy Coaching", to: "/coaching" },
   { label: "Schedule", to: "/schedule" },
   { label: "Book Me", to: "/book" },

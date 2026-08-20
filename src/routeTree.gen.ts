@@ -14,6 +14,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BookRouteImport } from './routes/book'
+import { Route as ClipsRouteImport } from './routes/clips'
 import { Route as CoachingRouteImport } from './routes/coaching'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as InflationGameRouteImport } from './routes/inflation-game'
@@ -42,6 +43,11 @@ const AuthRoute = AuthRouteImport.update({
 const BookRoute = BookRouteImport.update({
   id: '/book',
   path: '/book',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClipsRoute = ClipsRouteImport.update({
+  id: '/clips',
+  path: '/clips',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CoachingRoute = CoachingRouteImport.update({
@@ -75,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
   '/book': typeof BookRoute
+  '/clips': typeof ClipsRoute
   '/coaching': typeof CoachingRoute
   '/contact': typeof ContactRoute
   '/inflation-game': typeof InflationGameRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
   '/book': typeof BookRoute
+  '/clips': typeof ClipsRoute
   '/coaching': typeof CoachingRoute
   '/contact': typeof ContactRoute
   '/inflation-game': typeof InflationGameRoute
@@ -99,6 +107,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
   '/book': typeof BookRoute
+  '/clips': typeof ClipsRoute
   '/coaching': typeof CoachingRoute
   '/contact': typeof ContactRoute
   '/inflation-game': typeof InflationGameRoute
@@ -112,6 +121,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/auth'
     | '/book'
+    | '/clips'
     | '/coaching'
     | '/contact'
     | '/inflation-game'
@@ -123,6 +133,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/auth'
     | '/book'
+    | '/clips'
     | '/coaching'
     | '/contact'
     | '/inflation-game'
@@ -135,6 +146,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/auth'
     | '/book'
+    | '/clips'
     | '/coaching'
     | '/contact'
     | '/inflation-game'
@@ -148,6 +160,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AuthRoute: typeof AuthRoute
   BookRoute: typeof BookRoute
+  ClipsRoute: typeof ClipsRoute
   CoachingRoute: typeof CoachingRoute
   ContactRoute: typeof ContactRoute
   InflationGameRoute: typeof InflationGameRoute
@@ -189,6 +202,13 @@ declare module '@tanstack/react-router' {
       path: '/book'
       fullPath: '/book'
       preLoaderRoute: typeof BookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/clips': {
+      id: '/clips'
+      path: '/clips'
+      fullPath: '/clips'
+      preLoaderRoute: typeof ClipsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/coaching': {
@@ -246,6 +266,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AuthRoute: AuthRoute,
   BookRoute: BookRoute,
+  ClipsRoute: ClipsRoute,
   CoachingRoute: CoachingRoute,
   ContactRoute: ContactRoute,
   InflationGameRoute: InflationGameRoute,

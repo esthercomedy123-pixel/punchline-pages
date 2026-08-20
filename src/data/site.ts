@@ -184,6 +184,7 @@ export const navItems = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "The Inflation Game", to: "/inflation-game" },
+  { label: "Clips", to: "/clips" },
   { label: "Comedy Coaching", to: "/coaching" },
   { label: "Schedule", to: "/schedule" },
   { label: "Book Me", to: "/book" },

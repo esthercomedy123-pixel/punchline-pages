@@ -108,8 +108,28 @@ export type Clip = {
 
 export const clips: Clip[] = [
   {
+    title: "Inflation Game Clip",
+    url: "https://www.youtube.com/shorts/_RlaoHeXsI8",
+    blurb: "",
+  },
+    {
+    title: "Jillian Takes the Stage!",
+    url: "https://www.youtube.com/shorts/5LQB2ffvVEY",
+    blurb: "",
+  },
+    {
     title: "[CLIP TITLE]",
-    url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    url: "",
+    blurb: "[ONE LINE ABOUT THIS CLIP]",
+  },
+    {
+    title: "",
+    url: "",
+    blurb: "[ONE LINE ABOUT THIS CLIP]",
+  },
+    {
+    title: "[CLIP TITLE]",
+    url: "",
     blurb: "[ONE LINE ABOUT THIS CLIP]",
   },
 ];

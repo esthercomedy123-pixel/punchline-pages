@@ -15,10 +15,10 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BookRouteImport } from './routes/book'
 import { Route as ClipsRouteImport } from './routes/clips'
-import { Route as CoachingRouteImport } from './routes/coaching'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as InflationGameRouteImport } from './routes/inflation-game'
 import { Route as ScheduleRouteImport } from './routes/schedule'
+import { Route as ShopRouteImport } from './routes/shop'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 
 const IndexRoute = IndexRouteImport.update({
@@ -50,11 +50,6 @@ const ClipsRoute = ClipsRouteImport.update({
   path: '/clips',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CoachingRoute = CoachingRouteImport.update({
-  id: '/coaching',
-  path: '/coaching',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -70,6 +65,11 @@ const ScheduleRoute = ScheduleRouteImport.update({
   path: '/schedule',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
   id: '/admin',
   path: '/admin',
@@ -82,10 +82,10 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/book': typeof BookRoute
   '/clips': typeof ClipsRoute
-  '/coaching': typeof CoachingRoute
   '/contact': typeof ContactRoute
   '/inflation-game': typeof InflationGameRoute
   '/schedule': typeof ScheduleRoute
+  '/shop': typeof ShopRoute
   '/admin': typeof AuthenticatedAdminRoute
 }
 export interface FileRoutesByTo {
@@ -94,10 +94,10 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/book': typeof BookRoute
   '/clips': typeof ClipsRoute
-  '/coaching': typeof CoachingRoute
   '/contact': typeof ContactRoute
   '/inflation-game': typeof InflationGameRoute
   '/schedule': typeof ScheduleRoute
+  '/shop': typeof ShopRoute
   '/admin': typeof AuthenticatedAdminRoute
 }
 export interface FileRoutesById {
@@ -108,10 +108,10 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/book': typeof BookRoute
   '/clips': typeof ClipsRoute
-  '/coaching': typeof CoachingRoute
   '/contact': typeof ContactRoute
   '/inflation-game': typeof InflationGameRoute
   '/schedule': typeof ScheduleRoute
+  '/shop': typeof ShopRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
 }
 export interface FileRouteTypes {
@@ -122,10 +122,10 @@ export interface FileRouteTypes {
     | '/auth'
     | '/book'
     | '/clips'
-    | '/coaching'
     | '/contact'
     | '/inflation-game'
     | '/schedule'
+    | '/shop'
     | '/admin'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -134,10 +134,10 @@ export interface FileRouteTypes {
     | '/auth'
     | '/book'
     | '/clips'
-    | '/coaching'
     | '/contact'
     | '/inflation-game'
     | '/schedule'
+    | '/shop'
     | '/admin'
   id:
     | '__root__'
@@ -147,10 +147,10 @@ export interface FileRouteTypes {
     | '/auth'
     | '/book'
     | '/clips'
-    | '/coaching'
     | '/contact'
     | '/inflation-game'
     | '/schedule'
+    | '/shop'
     | '/_authenticated/admin'
   fileRoutesById: FileRoutesById
 }
@@ -161,10 +161,10 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   BookRoute: typeof BookRoute
   ClipsRoute: typeof ClipsRoute
-  CoachingRoute: typeof CoachingRoute
   ContactRoute: typeof ContactRoute
   InflationGameRoute: typeof InflationGameRoute
   ScheduleRoute: typeof ScheduleRoute
+  ShopRoute: typeof ShopRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -211,13 +211,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ClipsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/coaching': {
-      id: '/coaching'
-      path: '/coaching'
-      fullPath: '/coaching'
-      preLoaderRoute: typeof CoachingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -237,6 +230,13 @@ declare module '@tanstack/react-router' {
       path: '/schedule'
       fullPath: '/schedule'
       preLoaderRoute: typeof ScheduleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated/admin': {
@@ -267,10 +267,10 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   BookRoute: BookRoute,
   ClipsRoute: ClipsRoute,
-  CoachingRoute: CoachingRoute,
   ContactRoute: ContactRoute,
   InflationGameRoute: InflationGameRoute,
   ScheduleRoute: ScheduleRoute,
+  ShopRoute: ShopRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

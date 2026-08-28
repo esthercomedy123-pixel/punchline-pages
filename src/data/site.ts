@@ -136,14 +136,46 @@ export const clips: Clip[] = [
 
 /** Shows are loaded live from the schedule API (see src/config/shows.ts). */
 
-export const coachingSkills = [
-  { title: "Writing jokes", body: "[HOW YOU TEACH WRITING — premise, angle, tags, rewrites.]" },
-  { title: "Stage presence", body: "[STAGE PRESENCE — owning the room, mic technique, movement.]" },
-  { title: "Delivery & timing", body: "[DELIVERY & TIMING — pacing, pauses, where the laugh lives.]" },
-  { title: "Finding your voice", body: "[COMEDIC VOICE — how we find the version of you that's funniest.]" },
-  { title: "Performing live", body: "[PERFORMING — prepping sets, handling bombs, reading a room.]" },
-  { title: "Developing material", body: "[MATERIAL — turning five okay minutes into a tight ten.]" },
-  { title: "Getting better at stand-up", body: "[PROGRESS — practice structure, recording, honest feedback.]" },
+/**
+ * ---------------------------------------------
+ *  SHOP — merch + coaching products
+ * ---------------------------------------------
+ *  MERCH: copy a block to add a product. Set `image` to a photo URL
+ *  (leave "" for a styled placeholder tile) and `url` to a checkout
+ *  link (leave "" to send buyers to the contact page instead).
+ *  COACHING PACKAGES: sold as products in the shop — prices are
+ *  placeholders until you fill them in.
+ */
+export type Product = {
+  name: string;
+  price: string;
+  blurb: string;
+  image: string; // photo URL, or "" for a placeholder tile
+  url: string; // checkout/product link, or "" to use the contact page
+};
+
+export const products: Product[] = [
+  {
+    name: "[MERCH ITEM — e.g. Confidently Awkward Tee]",
+    price: "$___",
+    blurb: "[ONE LINE ABOUT THIS ITEM]",
+    image: "",
+    url: "",
+  },
+  {
+    name: "[MERCH ITEM — e.g. Inflation Game Mug]",
+    price: "$___",
+    blurb: "[ONE LINE ABOUT THIS ITEM]",
+    image: "",
+    url: "",
+  },
+  {
+    name: "[MERCH ITEM]",
+    price: "$___",
+    blurb: "[ONE LINE ABOUT THIS ITEM]",
+    image: "",
+    url: "",
+  },
 ];
 
 export const coachingPackages = [
@@ -205,7 +237,7 @@ export const navItems = [
   { label: "About", to: "/about" },
   { label: "The Inflation Game", to: "/inflation-game" },
   { label: "Clips", to: "/clips" },
-  { label: "Comedy Coaching", to: "/coaching" },
+  { label: "Shop", to: "/shop" },
   { label: "Schedule", to: "/schedule" },
   { label: "Book Me", to: "/book" },
   { label: "Contact", to: "/contact" },

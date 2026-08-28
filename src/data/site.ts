@@ -237,7 +237,7 @@ export const navItems = [
   { label: "About", to: "/about" },
   { label: "The Inflation Game", to: "/inflation-game" },
   { label: "Clips", to: "/clips" },
-  { label: "Comedy Coaching", to: "/coaching" },
+  { label: "Shop", to: "/shop" },
   { label: "Schedule", to: "/schedule" },
   { label: "Book Me", to: "/book" },
   { label: "Contact", to: "/contact" },

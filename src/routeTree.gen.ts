@@ -19,6 +19,7 @@ import { Route as CoachingRouteImport } from './routes/coaching'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as InflationGameRouteImport } from './routes/inflation-game'
 import { Route as ScheduleRouteImport } from './routes/schedule'
+import { Route as ShopRouteImport } from './routes/shop'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 
 const IndexRoute = IndexRouteImport.update({
@@ -70,6 +71,11 @@ const ScheduleRoute = ScheduleRouteImport.update({
   path: '/schedule',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
   id: '/admin',
   path: '/admin',
@@ -86,6 +92,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/inflation-game': typeof InflationGameRoute
   '/schedule': typeof ScheduleRoute
+  '/shop': typeof ShopRoute
   '/admin': typeof AuthenticatedAdminRoute
 }
 export interface FileRoutesByTo {
@@ -98,6 +105,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/inflation-game': typeof InflationGameRoute
   '/schedule': typeof ScheduleRoute
+  '/shop': typeof ShopRoute
   '/admin': typeof AuthenticatedAdminRoute
 }
 export interface FileRoutesById {
@@ -112,6 +120,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/inflation-game': typeof InflationGameRoute
   '/schedule': typeof ScheduleRoute
+  '/shop': typeof ShopRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
 }
 export interface FileRouteTypes {
@@ -126,6 +135,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/inflation-game'
     | '/schedule'
+    | '/shop'
     | '/admin'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -138,6 +148,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/inflation-game'
     | '/schedule'
+    | '/shop'
     | '/admin'
   id:
     | '__root__'
@@ -151,6 +162,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/inflation-game'
     | '/schedule'
+    | '/shop'
     | '/_authenticated/admin'
   fileRoutesById: FileRoutesById
 }
@@ -165,6 +177,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   InflationGameRoute: typeof InflationGameRoute
   ScheduleRoute: typeof ScheduleRoute
+  ShopRoute: typeof ShopRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -239,6 +252,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ScheduleRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_authenticated/admin': {
       id: '/_authenticated/admin'
       path: '/admin'
@@ -271,6 +291,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   InflationGameRoute: InflationGameRoute,
   ScheduleRoute: ScheduleRoute,
+  ShopRoute: ShopRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

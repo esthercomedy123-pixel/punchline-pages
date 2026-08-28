@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, CalendarDays, GraduationCap } from "lucide-react";
+import { ArrowRight, CalendarDays, ShoppingBag } from "lucide-react";
 import heroImage from "@/assets/hero-comedian.jpg";
 import inflationImage from "@/assets/inflation-game.jpg";
 import coachingImage from "@/assets/coaching.jpg";

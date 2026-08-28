@@ -57,8 +57,8 @@ function Index() {
                 </Link>
               </Button>
               <Button asChild variant="pop" size="xl">
-                <Link to="/coaching">
-                  <GraduationCap aria-hidden="true" /> Learn comedy
+                <Link to="/shop">
+                  <ShoppingBag aria-hidden="true" /> Visit the shop
                 </Link>
               </Button>
               <Button asChild variant="ghostOnDark" size="xl">
@@ -180,17 +180,17 @@ function Index() {
         </Reveal>
         <Reveal delay={100}>
           <SectionHeading
-            kicker="Comedy coaching"
+            kicker="The shop"
             title={
               <>
-                Learn the <span className="text-gradient-hot">craft of comedy</span>
+                Merch &amp; <span className="text-gradient-hot">coaching packages</span>
               </>
             }
-            lead="Writing, timing, stage presence, and finding the version of you that's actually funniest. One-on-one sessions, packages, and group workshops."
+            lead="Grab some merch, or level up your own comedy with one-on-one sessions, packages, and group workshops."
           />
           <Button asChild variant="hero" size="xl" className="mt-8">
-            <Link to="/coaching">
-              Book a coaching session <ArrowRight aria-hidden="true" />
+            <Link to="/shop">
+              Browse the shop <ArrowRight aria-hidden="true" />
             </Link>
           </Button>
         </Reveal>

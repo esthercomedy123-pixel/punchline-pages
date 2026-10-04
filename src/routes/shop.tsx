@@ -1,13 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, GraduationCap, ShoppingBag } from "lucide-react";
+import { Check, ExternalLink, GraduationCap, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
-import { coachingPackages, products } from "@/data/site";
+import { coachingPackages, payhipStoreUrl } from "@/data/site";
 
 const title = "Shop — Merch & Comedy Coaching";
 const description =
-  "Grab comedy merch and book coaching packages — one-on-one sessions, multi-session bundles, and group workshops for aspiring comedians.";
+  "Grab comedy merch from the Payhip store and book coaching packages — one-on-one sessions, multi-session bundles, and group workshops for aspiring comedians.";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
@@ -44,53 +44,30 @@ function ShopPage() {
           <SectionHeading
             kicker="Merch"
             title="Wear the bit"
-            lead="New drops when I get around to it. Prices are placeholders until the real store links go live."
+            lead="The full store, right here — browse and check out without leaving the site."
           />
         </Reveal>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((product, index) => (
-            <Reveal key={product.name} delay={index * 70}>
-              <article className="group flex h-full flex-col overflow-hidden rounded-3xl border-2 border-border bg-card transition-[border-color,transform] hover:-translate-y-1 hover:border-accent">
-                {product.image ? (
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    loading="lazy"
-                    className="aspect-square w-full object-cover"
-                  />
-                ) : (
-                  <div className="flex aspect-square w-full items-center justify-center bg-gradient-money p-8 text-center">
-                    <span className="font-display text-2xl tracking-wide text-accent-foreground uppercase">
-                      {product.name}
-                    </span>
-                  </div>
-                )}
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="text-xl">{product.name}</h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
-                    {product.blurb}
-                  </p>
-                  <div className="mt-5 flex items-center justify-between gap-3">
-                    <span className="font-display text-3xl">{product.price}</span>
-                    {product.url ? (
-                      <Button asChild variant="pop">
-                        <a href={product.url} target="_blank" rel="noopener noreferrer">
-                          Buy <ArrowRight aria-hidden="true" />
-                        </a>
-                      </Button>
-                    ) : (
-                      <Button asChild variant="pop">
-                        <Link to="/contact">
-                          Ask to buy <ArrowRight aria-hidden="true" />
-                        </Link>
-                      </Button>
-                    )}
-                  </div>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
+        <Reveal delay={100}>
+          <div className="mt-10 overflow-hidden rounded-3xl border-2 border-border bg-card shadow-pop">
+            <iframe
+              src={payhipStoreUrl}
+              title="All Things Comedy merch store"
+              className="h-[80vh] min-h-[600px] w-full bg-white"
+              loading="lazy"
+            />
+          </div>
+          <p className="mt-4 text-center text-sm text-muted-foreground">
+            Store not loading?{" "}
+            <a
+              href={payhipStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 font-semibold text-accent underline underline-offset-4 hover:text-foreground"
+            >
+              Open it in a new tab <ExternalLink className="size-3.5" aria-hidden="true" />
+            </a>
+          </p>
+        </Reveal>
       </section>
 
       <section className="border-y-2 border-border bg-primary/10">

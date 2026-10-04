@@ -146,37 +146,6 @@ export const clips: Clip[] = [
  *  COACHING PACKAGES: prices are placeholders until you fill them in.
  */
 export const payhipStoreUrl = "https://payhip.com/Allthingscomedy";
-export type Product = {
-  name: string;
-  price: string;
-  blurb: string;
-  image: string; // photo URL, or "" for a placeholder tile
-  url: string; // checkout/product link, or "" to use the contact page
-};
-
-export const products: Product[] = [
-  {
-    name: "[MERCH ITEM — e.g. Confidently Awkward Tee]",
-    price: "$___",
-    blurb: "[ONE LINE ABOUT THIS ITEM]",
-    image: "",
-    url: "",
-  },
-  {
-    name: "[MERCH ITEM — e.g. Inflation Game Mug]",
-    price: "$___",
-    blurb: "[ONE LINE ABOUT THIS ITEM]",
-    image: "",
-    url: "",
-  },
-  {
-    name: "[MERCH ITEM]",
-    price: "$___",
-    blurb: "[ONE LINE ABOUT THIS ITEM]",
-    image: "",
-    url: "",
-  },
-];
 
 export const coachingPackages = [
   {

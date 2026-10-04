@@ -41,32 +41,19 @@ function ShopPage() {
 
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <Reveal>
-          <SectionHeading
-            kicker="Merch"
-            title="Wear the bit"
-            lead="The full store, right here — browse and check out without leaving the site."
-          />
-        </Reveal>
-        <Reveal delay={100}>
-          <div className="mt-10 overflow-hidden rounded-3xl border-2 border-border bg-card shadow-pop">
-            <iframe
-              src={payhipStoreUrl}
-              title="All Things Comedy merch store"
-              className="h-[80vh] min-h-[600px] w-full bg-white"
-              loading="lazy"
-            />
+          <div className="relative overflow-hidden rounded-[2rem] border-[3px] border-ink bg-gradient-money p-10 text-center text-accent-foreground shadow-pop sm:p-16">
+            <ShoppingBag className="mx-auto size-12" aria-hidden="true" />
+            <h2 className="mt-4 text-4xl sm:text-5xl">Wear the bit</h2>
+            <p className="mx-auto mt-4 max-w-xl text-accent-foreground/80">
+              The full merch store lives on Payhip — shirts, mugs, and whatever else I
+              convince myself is a good idea. Secure checkout, straight from there.
+            </p>
+            <Button asChild variant="marquee" size="xl" className="mt-8">
+              <a href={payhipStoreUrl} target="_blank" rel="noopener noreferrer">
+                Shop the merch store <ExternalLink aria-hidden="true" />
+              </a>
+            </Button>
           </div>
-          <p className="mt-4 text-center text-sm text-muted-foreground">
-            Store not loading?{" "}
-            <a
-              href={payhipStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 font-semibold text-accent underline underline-offset-4 hover:text-foreground"
-            >
-              Open it in a new tab <ExternalLink className="size-3.5" aria-hidden="true" />
-            </a>
-          </p>
         </Reveal>
       </section>
 

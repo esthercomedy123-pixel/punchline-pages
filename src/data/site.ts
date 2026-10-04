@@ -138,45 +138,14 @@ export const clips: Clip[] = [
 
 /**
  * ---------------------------------------------
- *  SHOP — merch + coaching products
+ *  SHOP — Payhip store + coaching packages
  * ---------------------------------------------
- *  MERCH: copy a block to add a product. Set `image` to a photo URL
- *  (leave "" for a styled placeholder tile) and `url` to a checkout
- *  link (leave "" to send buyers to the contact page instead).
- *  COACHING PACKAGES: sold as products in the shop — prices are
- *  placeholders until you fill them in.
+ *  Your Payhip store is embedded on the Shop page. To change stores,
+ *  swap the URL below. Products, prices, and checkout are all managed
+ *  in your Payhip dashboard — nothing to edit here.
+ *  COACHING PACKAGES: prices are placeholders until you fill them in.
  */
-export type Product = {
-  name: string;
-  price: string;
-  blurb: string;
-  image: string; // photo URL, or "" for a placeholder tile
-  url: string; // checkout/product link, or "" to use the contact page
-};
-
-export const products: Product[] = [
-  {
-    name: "[MERCH ITEM — e.g. Confidently Awkward Tee]",
-    price: "$___",
-    blurb: "[ONE LINE ABOUT THIS ITEM]",
-    image: "",
-    url: "",
-  },
-  {
-    name: "[MERCH ITEM — e.g. Inflation Game Mug]",
-    price: "$___",
-    blurb: "[ONE LINE ABOUT THIS ITEM]",
-    image: "",
-    url: "",
-  },
-  {
-    name: "[MERCH ITEM]",
-    price: "$___",
-    blurb: "[ONE LINE ABOUT THIS ITEM]",
-    image: "",
-    url: "",
-  },
-];
+export const payhipStoreUrl = "https://payhip.com/Allthingscomedy";
 
 export const coachingPackages = [
   {

@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, useNavigate, type ErrorComponentProps } from "@tanstack/react-router";
 import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -49,10 +49,12 @@ export const Route = createFileRoute("/_authenticated/admin")({
     ],
   }),
   component: AdminPage,
-  errorComponent: ({ error }) => (
+  errorComponent: ({ error }: ErrorComponentProps) => (
     <main className="mx-auto max-w-3xl px-4 py-24 text-center">
       <h1 className="font-display text-3xl uppercase">Couldn't load the inbox</h1>
-      <p className="mt-3 text-sm text-muted-foreground">{error.message}</p>
+      <p className="mt-3 text-sm text-muted-foreground">
+        {error instanceof Error ? error.message : String(error)}
+      </p>
     </main>
   ),
   notFoundComponent: () => (
